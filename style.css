@@ -11,6 +11,7 @@ body {
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
+  position: relative;
 }
 
 header {
@@ -51,9 +52,12 @@ nav {
   padding-right: 98px;
   display: flex;
   justify-content: space-between;
+  position: sticky;
+  top: 0px;
   background: #FFFFFF;
   box-shadow: inset 0px -1px 0px #C4CDD5;
   border-bottom: 1px solid rgba(0, 0, 0, 0.263);
+  z-index: 1000;
 }
 nav .left {
   height: 100%;
@@ -233,7 +237,7 @@ main .catalog .catalog-titles {
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
-  margin-top: 40px;
+  margin-top: 10px;
 }
 main .catalog .catalog-titles .catalog-title {
   display: flex;
@@ -260,7 +264,13 @@ main .catalog .catalog-titles .catalog-title span {
 main .catalog .top-section {
   display: flex;
   justify-content: space-between;
-  margin-top: 32px;
+  margin-top: 20px;
+  position: sticky;
+  top: 80px;
+  z-index: 1000;
+  gap: 30px;
+  background-color: white;
+  padding: 10px 0;
 }
 main .catalog .top-section .resetfiltr {
   padding: 7px 72px;
@@ -275,6 +285,7 @@ main .catalog .top-section .resetfiltr {
   align-items: center;
   color: #161C24;
   background: #FFFFFF;
+  cursor: pointer;
 }
 main .catalog .top-section select {
   padding: 7px 16px;
@@ -297,6 +308,25 @@ main .catalog .top-section select .selected {
   background: #dde6ee;
   color: #4295E4;
   font-weight: 600;
+}
+main .catalog .top-section .myfav {
+  display: flex;
+  align-items: center;
+}
+main .catalog .top-section .myfav img {
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+}
+main .catalog .top-section .myfav h2 {
+  font-family: "SF Pro Text";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 24px;
+  color: #161C24;
+  text-transform: capitalize;
+  padding: 5px 5px;
 }
 main .catalog .top-section .selectedcategories {
   display: flex;
@@ -331,6 +361,8 @@ main .catalog .catalog-content {
 }
 main .catalog .catalog-content .filter-section {
   display: flex;
+  position: sticky;
+  top: 50px;
   flex-direction: column;
   flex-wrap: wrap;
   padding: 24px;
@@ -350,8 +382,9 @@ main .catalog .catalog-content .filter-section h2 {
 }
 main .catalog .catalog-content .filter-section .price-title,
 main .catalog .catalog-content .filter-section .category-title {
-  width: 288px;
+  width: 240px;
   display: flex;
+  justify-content: space-between;
   margin-top: 10px;
 }
 main .catalog .catalog-content .filter-section .price-title h2,
@@ -373,7 +406,7 @@ main .catalog .catalog-content .filter-section .category-title img {
   height: 16px;
 }
 main .catalog .catalog-content .filter-section .category-list {
-  width: 100%;
+  width: 288px;
   display: none;
   flex-wrap: wrap;
   text-transform: capitalize;
@@ -386,6 +419,7 @@ main .catalog .catalog-content .filter-section .category-list label {
   font-size: 16px;
   line-height: 24px;
   color: #161C24;
+  margin: 10px 0;
 }
 main .catalog .catalog-content .filter-section .category-list label span {
   font-family: "SF Pro Text";
@@ -396,42 +430,30 @@ main .catalog .catalog-content .filter-section .category-list label span {
   text-align: right;
   color: #454F5B;
 }
-main .catalog .catalog-content .products-section {
-  display: flex;
-  flex-wrap: wrap;
-  grid-gap: 30px;
-}
-main .catalog .catalog-content .products-section div {
-  max-width: 288px;
-}
-main .catalog .catalog-content .products-section div img {
-  width: 100%;
-  height: 320px;
-}
-main .catalog .wrapper {
+main .catalog .catalog-content .filter-section .wrapper {
   width: 240px;
   background: #fff;
   border-radius: 10px;
   display: none;
 }
-main .catalog .wrapper .line {
+main .catalog .catalog-content .filter-section .wrapper .line {
   width: 100%;
   margin: 20px 0;
   border: 1px solid #e6dada;
 }
-main .catalog .price-input {
+main .catalog .catalog-content .filter-section .price-input {
   width: 100%;
   display: flex;
   margin: 20px 0 27px;
   gap: 8px;
 }
-main .catalog .price-input .field {
+main .catalog .catalog-content .filter-section .price-input .field {
   width: 116px;
   height: 44px;
   background: #FFFFFF;
   border: 1px solid #4295E4;
 }
-main .catalog .field input {
+main .catalog .catalog-content .filter-section .field input {
   width: 100%;
   height: 100%;
   text-align: center;
@@ -445,17 +467,17 @@ main .catalog .field input {
   line-height: 24px;
   color: #161C24;
 }
-main .catalog input[type=number]::-webkit-outer-spin-button,
-main .catalog input[type=number]::-webkit-inner-spin-button {
+main .catalog .catalog-content .filter-section input[type=number]::-webkit-outer-spin-button,
+main .catalog .catalog-content .filter-section input[type=number]::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
-main .catalog .slider {
+main .catalog .catalog-content .filter-section .slider {
   height: 5px;
   position: relative;
   background: #ddd;
   border-radius: 5px;
 }
-main .catalog .slider .progress {
+main .catalog .catalog-content .filter-section .slider .progress {
   height: 100%;
   left: 0%;
   right: 0%;
@@ -463,10 +485,10 @@ main .catalog .slider .progress {
   background: #4295E4;
   border-radius: 2px;
 }
-main .catalog .range-input {
+main .catalog .catalog-content .filter-section .range-input {
   position: relative;
 }
-main .catalog .range-input input {
+main .catalog .catalog-content .filter-section .range-input input {
   position: absolute;
   width: 100%;
   height: 5px;
@@ -477,7 +499,7 @@ main .catalog .range-input input {
   -moz-appearance: none;
        appearance: none;
 }
-main .catalog input[type=range]::-webkit-slider-thumb {
+main .catalog .catalog-content .filter-section input[type=range]::-webkit-slider-thumb {
   height: 24px;
   width: 24px;
   background: #FFFFFF;
@@ -487,7 +509,7 @@ main .catalog input[type=range]::-webkit-slider-thumb {
   pointer-events: auto;
   -webkit-appearance: none;
 }
-main .catalog input[type=range]::-moz-range-thumb {
+main .catalog .catalog-content .filter-section input[type=range]::-moz-range-thumb {
   height: 24px;
   width: 24px;
   background: #FFFFFF;
@@ -496,4 +518,380 @@ main .catalog input[type=range]::-moz-range-thumb {
   border-radius: 1px;
   pointer-events: auto;
   -moz-appearance: none;
+}
+main .catalog .catalog-content .products-section {
+  display: flex;
+  flex-wrap: wrap;
+  grid-gap: 30px;
+}
+main .catalog .catalog-content .products-section .productbox {
+  width: 288px;
+  position: relative;
+  border: 1px solid rgba(69, 79, 91, 0.2352941176);
+}
+main .catalog .catalog-content .products-section .productbox .stockbox {
+  font-family: "SF Pro Text";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 17px;
+  color: #454F5B;
+  position: absolute;
+  top: 17px;
+  left: 12px;
+  height: 22px;
+  align-items: center;
+  display: flex;
+  background-color: #fefcfc;
+  padding: 5px;
+}
+main .catalog .catalog-content .products-section .productbox .stockbox img {
+  width: 20px;
+  height: 22px;
+}
+main .catalog .catalog-content .products-section .productbox .salebox {
+  font-family: "SF Pro Text";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 14px;
+  color: #161C24;
+  align-items: center;
+  display: flex;
+  background-color: #fefcfc;
+  color: red;
+  padding: 5px;
+  position: absolute;
+  top: 55px;
+  right: 12px;
+  text-align: center;
+}
+main .catalog .catalog-content .products-section .productbox h1 {
+  font-family: "SF Pro Text";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 14px;
+  color: #161C24;
+  align-items: center;
+  display: flex;
+  background-color: #fefcfc;
+  padding: 10px;
+  position: absolute;
+  top: 17px;
+  right: 12px;
+  text-align: center;
+}
+main .catalog .catalog-content .products-section .productbox img {
+  width: 100%;
+  max-width: 288px;
+  height: 320px;
+  border-bottom: 1px solid rgba(69, 79, 91, 0.2352941176);
+  cursor: pointer;
+}
+main .catalog .catalog-content .products-section .productbox .ratingbox {
+  font-family: "SF Pro Text";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  display: flex;
+  align-items: center;
+  color: #454F5B;
+  margin: 10px 0;
+  margin-left: 12px;
+}
+main .catalog .catalog-content .products-section .productbox .ratingbox .fa-heart {
+  cursor: pointer;
+}
+main .catalog .catalog-content .products-section .productbox .ratingbox .fa-thumbs-up {
+  cursor: pointer;
+}
+main .catalog .catalog-content .products-section .productbox .ratingbox .fa-thumbs-down {
+  cursor: pointer;
+}
+main .catalog .catalog-content .products-section .productbox h2 {
+  font-family: "SF Pro Text";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 26px;
+  display: flex;
+  align-items: center;
+  color: #454F5B;
+  margin-left: 12px;
+  cursor: pointer;
+}
+main .catalog .catalog-content .products-section .productbox h3 {
+  margin: 10px 0;
+  font-family: "SF Pro Text";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 24px;
+  color: #161C24;
+  margin-left: 12px;
+}
+main .catalog .catalog-content .products-section .productbox h3 span {
+  font-family: "SF Pro Text";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 21px;
+  color: #454F5B;
+  text-decoration: line-through;
+  text-decoration-color: red;
+}
+main .catalog .catalog-content .products-section .productbox h3 .fa-cart-plus {
+  cursor: pointer;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(173, 215, 255, 0.6823529412);
+  z-index: 10000;
+  display: none;
+}
+
+.productform {
+  position: fixed;
+  top: 50px;
+  left: 10%;
+  width: 80%;
+  background-color: rgba(173, 215, 255, 0.1254901961);
+  z-index: 100000;
+  display: none;
+  border: 1px solid rgba(69, 79, 91, 0.2352941176);
+}
+.productform .productinfo {
+  width: 100%;
+  display: flex;
+  gap: 30px;
+  background-color: white;
+}
+.productform .productinfo img {
+  width: 50%;
+  height: 50vh;
+  border-right: 1px solid rgba(69, 79, 91, 0.2352941176);
+}
+.productform .productinfo .infosection {
+  padding: 5px;
+  width: 50%;
+}
+.productform .productinfo .infosection .stockbox {
+  font-family: "SF Pro Text";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 17px;
+  color: #535252;
+  height: 22px;
+  align-items: center;
+  display: flex;
+  padding: 5px;
+}
+.productform .productinfo .infosection .stockbox img {
+  width: 20px;
+  height: 22px;
+}
+.productform .productinfo .infosection .salebox {
+  font-family: "SF Pro Text";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 14px;
+  color: #161C24;
+  align-items: center;
+  display: flex;
+  background-color: #fefcfc;
+  color: red;
+  padding: 5px;
+  position: absolute;
+  top: 50px;
+  right: 12px;
+  text-align: center;
+}
+.productform .productinfo .infosection h1 {
+  font-family: "SF Pro Text";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 14px;
+  color: #161C24;
+  align-items: center;
+  display: flex;
+  background-color: #fefcfc;
+  padding: 5px;
+  position: absolute;
+  top: 17px;
+  right: 12px;
+  text-align: center;
+}
+.productform .productinfo .infosection .ratingbox {
+  font-family: "SF Pro Text";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  display: flex;
+  align-items: center;
+  color: #454F5B;
+  margin: 10px 0;
+}
+.productform .productinfo .infosection .ratingbox .fa-heart {
+  cursor: pointer;
+}
+.productform .productinfo .infosection .ratingbox .fa-thumbs-up {
+  cursor: pointer;
+}
+.productform .productinfo .infosection .ratingbox .fa-thumbs-down {
+  cursor: pointer;
+}
+.productform .productinfo .infosection p {
+  font-family: "SF Pro Text";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+  display: flex;
+  align-items: center;
+  color: #454F5B;
+  margin-top: 20px;
+}
+.productform .productinfo .infosection h2 {
+  font-family: "SF Pro Text";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 26px;
+  display: flex;
+  align-items: center;
+  color: #454F5B;
+  cursor: pointer;
+}
+.productform .productinfo .infosection h3 {
+  margin: 10px 0;
+  font-family: "SF Pro Text";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 24px;
+  color: #161C24;
+}
+.productform .productinfo .infosection h3 span {
+  font-family: "SF Pro Text";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 21px;
+  color: #454F5B;
+  text-decoration: line-through;
+  text-decoration-color: red;
+}
+.productform .productinfo .infosection h3 .fa-cart-plus {
+  cursor: pointer;
+}
+.productform .productimages {
+  width: 100%;
+  height: 40vh;
+  display: flex;
+  overflow: scroll;
+  gap: 10px;
+  justify-content: space-between;
+  border: 1px solid rgba(69, 79, 91, 0.2352941176);
+  background-color: #d9d7d7;
+}
+.productform .productimages img {
+  height: 100%;
+  border: 1px solid rgba(69, 79, 91, 0.2352941176);
+}
+
+.cartform {
+  position: fixed;
+  top: 10px;
+  left: 10%;
+  width: 80%;
+  background-color: whitesmoke;
+  z-index: 100000;
+  display: none;
+  border: 1px solid rgba(69, 79, 91, 0.2352941176);
+  padding: 20px 40px;
+  height: 90vh;
+}
+.cartform .carttitle {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(69, 79, 91, 0.2352941176);
+  height: 50px;
+  align-content: center;
+}
+.cartform .carttitle h3 {
+  font-family: "SF Pro Display";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 34px;
+  display: flex;
+  align-items: center;
+  color: #161C24;
+}
+.cartform .carttitle img {
+  height: 24px;
+  width: 24px;
+}
+.cartform .cartitems {
+  width: 100%;
+  height: 80%;
+  overflow: scroll;
+  display: block;
+}
+.cartform .cartitems .cartitem {
+  width: 100%;
+  display: flex;
+  margin: 5px 0;
+  border-top: 1px solid rgba(69, 79, 91, 0.2352941176);
+  border-bottom: 1px solid rgba(69, 79, 91, 0.2352941176);
+}
+.cartform .cartitems .cartitem img {
+  height: 120px;
+  width: 136px;
+}
+.cartform .cartitems .cartitem .iteminfo {
+  position: relative;
+  width: 100%;
+}
+.cartform .cartitems .cartitem .iteminfo h1 {
+  font-family: "SF Pro Text";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 26px;
+  color: #161C24;
+}
+.cartform .cartitems .cartitem .iteminfo .itemprice {
+  display: flex;
+  gap: 20px;
+  font-family: "SF Pro Text";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  color: #161C24;
+}
+.cartform .cartitems .cartitem .iteminfo .itemprice input {
+  font-size: 24px;
+  text-align: center;
+}
+.cartform .cartitems .cartitem .iteminfo img {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  width: 36px;
+  height: 36px;
 }/*# sourceMappingURL=style.css.map */

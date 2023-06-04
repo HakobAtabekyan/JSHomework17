@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>G|S</title>
     <link rel="stylesheet" href="./style.css">
-    <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/mailtoharshit/San-Francisco-Font-/sanfrancisco.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -47,9 +48,9 @@
         <div class="title">
             <h2>Главная /</h2>
             <h2>Каталог</h2>
-
+            
         </div>
-
+        
         <div class="category">
 
             <h1>Категории</h1>
@@ -57,12 +58,14 @@
             <a href="">Смотреть все</a>
 
         </div>
+        
 
         <div class="catalog">
 
             <div class="catalog-titles"></div>
             <div class="top-section">
                 <button class="resetfiltr">Сбросить фильтры</button>
+                <div class="myfav"></div>
                 <div class="selectedcategories"></div>
                 <select>
                 </select>
@@ -89,8 +92,8 @@
                           <div class="progress"></div>
                         </div>
                         <div class="range-input">
-                          <input type="range" class="range-min" min="0" max="10000" value="0" step="10">
-                          <input type="range" class="range-max" min="0" max="10000" value="10000" step="10">
+                          <input type="range" class="range-min" min="0" max="10000" value="0" step="1">
+                          <input type="range" class="range-max" min="0" max="10000" value="10000" step="1">
                         </div>
                         <div class="line"></div>
                       </div>
@@ -107,28 +110,37 @@
                 </div>
                 <div class="products-section"></div>
             </div>
-           
 
-            
+        </div>
 
-
-
+            <div class="modal"></div>
 
 
-
-
-
+        <div class="productform">
+            <div class="productinfo">
+                <img src="" alt="foto">
+                <div class="infosection">
+                </div>
+            </div>
+            <div class="productimages"></div>
 
 
         </div>
 
+        <div class="cartform">
+        <div class="carttitle">
+            <h3>Корзина</h3>
+            <img src="./images/Frame (17).png" alt="close">
+        </div>
+        <div class="cartitems"></div>
+        <div class="carttotal">
+            <h3>Итого</h3><h2></h2>
+            <button> Оформить заказ</button>
+        </div>
 
 
 
-
-
-
-
+        </div>
 
     </main>
 
